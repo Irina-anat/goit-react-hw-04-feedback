@@ -5,13 +5,19 @@ import PropTypes from 'prop-types';
 
 const FeedbackOptions = ({ options, onLeaveFeedback }) => {
 
-    return <div className={css.options__thumb}>
-        {options.map((option) => (<button type="button"
-            key={option}
-            onClick={() => onLeaveFeedback(option)}
-            className={css.option__button}>
-            {option}</button>))}
-        </div>    
+    return (
+        <div className={css.options__thumb}>
+            {options.map((option) => (
+                <button
+                    type="button"
+                    key={option}
+                    onClick={() => onLeaveFeedback(option)}
+                    className={css.option__button}
+                >
+                    {option.charAt(0).toUpperCase() + option.slice(1)}
+                </button>
+            ))}
+        </div>);
 };
 
 FeedbackOptions.propTypes = {
@@ -21,3 +27,12 @@ FeedbackOptions.propTypes = {
 
 
 export default FeedbackOptions;
+
+
+/*<div className={css.options__thumb}>
+        {options.map((option) => (<button type="button"
+            key={option}
+            onClick={() => onLeaveFeedback(option)}
+            className={css.option__button}>
+            {option}</button>))}
+        </div> */
