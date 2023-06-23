@@ -56,6 +56,62 @@ const App = () => {
 };
 
 export { App };
+  
+  
+/*2-й варіант const App = () => {
+  const [goodFeedback, setGoodFeedback] = useState(0);
+  const [neutralFeedback, setNeutralFeedback] = useState(0);
+  const [badFeedback, setBadFeedback] = useState(0);
+
+  const addFeedbackOption = option => {
+    switch (option) {
+      case "good":
+        setGoodFeedback(prevFeedback => prevFeedback + 1);
+        break;
+      case "neutral":
+        setNeutralFeedback(prevFeedback => prevFeedback + 1);
+        break;
+      case "bad":
+        setBadFeedback(prevFeedback => prevFeedback + 1);
+        break;
+      default:
+        break;
+    }
+  };
+
+  const totalFeedback = goodFeedback + neutralFeedback + badFeedback;
+  const positivePercentage = totalFeedback === 0 ? 0 : Math.round((goodFeedback / totalFeedback) * 100);
+
+  useEffect(() => {
+    // Виконується дія при зміні стану зворотного зв'язку
+
+  }, [goodFeedback, neutralFeedback, badFeedback]);
+
+  return (
+    <div className={css.container}>
+      <Section title="Please leave feedback">
+        <FeedbackOptions
+          options={["good", "neutral", "bad"]}
+          onLeaveFeedback={addFeedbackOption}
+        />
+      </Section>
+
+      {totalFeedback ? (
+        <Section title="Statistics">
+          <Statistics
+            good={goodFeedback}
+            neutral={neutralFeedback}
+            bad={badFeedback}
+            total={totalFeedback}
+            positivePercentage={positivePercentage}
+          />
+        </Section>
+      ) : (
+        <Notification message={"There is no feedback"} />
+      )}
+    </div>
+  );
+};*/
           
 
 
